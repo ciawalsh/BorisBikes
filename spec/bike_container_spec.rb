@@ -39,7 +39,7 @@ describe BikeContainer do
 
 	it "should not release a bike if it's empty" do
 		fill_holder(0, holder)
-		expect(lambda { holder.release(bike) }).to raise_error(RuntimeError, 'There are no more bikes')
+		expect(lambda { holder.release(bike) }).to raise_error(RuntimeError, 'There are no bikes in this holder')
 	end
 
 	it "should provide the list of available bikes" do

@@ -24,12 +24,16 @@ module BikeContainer
 	end
 
 	def release(bike)
-		if bike_count > 0
-			bikes.delete(bike)
+		if empty?
+			raise "There are no bikes in this holder"
 		else
-			raise "There are no more bikes" 
+			bikes.delete(bike) 
 		end
 	end
+
+	def empty?
+		bike_count == 0
+	end	
 
 	def full?
 		bike_count == capacity
