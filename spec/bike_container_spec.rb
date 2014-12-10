@@ -33,7 +33,7 @@ describe BikeContainer do
 
 	it "should not accept a bike if it's full" do
 		fill_holder(holder)
-		expect(lambda { holder.dock(bike) }).to raise_error(RuntimeError, 'Station is full')
+		expect(lambda { holder.dock(bike) }).to raise_error(RuntimeError, 'There is no more room for bikes')
 	end
 
 	it "should provide the list of available bikes" do
