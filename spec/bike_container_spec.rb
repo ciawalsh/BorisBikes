@@ -49,4 +49,12 @@ describe BikeContainer do
 		holder.dock(broken_bike)
 		expect(holder.available_bikes).to eq([working_bike])
 	end
+
+	it "should provide the list of unavailable bikes" do
+		working_bike, broken_bike = Bike.new, Bike.new
+		broken_bike.break!
+		holder.dock(working_bike)
+		holder.dock(broken_bike)
+		expect(holder.unavailable_bikes).to eq([broken_bike])
+	end
 end
