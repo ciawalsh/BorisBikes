@@ -2,13 +2,14 @@ require './lib/bike_container'
 
 class ContainerHolder
 	include BikeContainer
-end
+end 
 
 describe BikeContainer do
 
-	def fill_holder(holder)
-		10.times { holder.dock(Bike.new) }
+	def fill_holder(number_of_times, holder)
+		number_of_times.times { holder.dock(Bike.new) }
 	end
+
 	
 	let(:bike) { Bike.new }
 	let(:holder) { ContainerHolder.new() }
@@ -27,13 +28,18 @@ describe BikeContainer do
 
 	it "should know when it's full" do
 		expect(holder).not_to be_full
-		fill_holder(holder)
+		fill_holder(10, holder)
 		expect(holder).to be_full
 	end
 
 	it "should not accept a bike if it's full" do
-		fill_holder(holder)
+		fill_holder(10, holder)
 		expect(lambda { holder.dock(bike) }).to raise_error(RuntimeError, 'There is no more room for bikes')
+	end
+
+	it "should not release a bike if it's empty" do
+		fill_holder(0, holder)
+		expect(lambda { holder.release(bike) }).to raise_error(RuntimeError, 'There are no more bikes')
 	end
 
 	it "should provide the list of available bikes" do
