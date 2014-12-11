@@ -55,6 +55,10 @@ module BikeContainer
 		bikes.reject(&:broken?)
 	end
 
+	def available_broken_bikes
+		broken_bikes.select(&:broken?)
+	end
+
 	def unavailable_bikes
 		bikes.select(&:broken?)
 	end

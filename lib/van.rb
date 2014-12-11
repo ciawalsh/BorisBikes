@@ -8,23 +8,26 @@ class Van
 		self.capacity = options.fetch(:capacity, capacity)
 	end
 
-	def check_station(station)
+	def change_to_broken_bike_array(station)
 		station.unavailable_bikes.each do |bike| 
 			broken_bikes << bike 
 		end
 	end
 
-	def check_station_amount(station)
+	def number_of_broken_bikes_at(station)
 		station.unavailable_bikes.length
 	end
 
-	def accept_from_station(station, bike)
-		check_station(station)
+	def collect_from_station(station)
+		change_to_broken_bike_array(station)
 		broken_bikes.push do | bike |
-			station.release(bike) 
 			dock(bike)
 		end
 		station.unavailable_bikes.each { |bike| station.release(bike) }
+	end
+
+	def collect_from_garage(garage)
+
 	end
 
 end
