@@ -14,7 +14,7 @@ describe DockingStation do
 
 	it "should accept working bikes from a van" do
 		van.dock(bike)
-		station.accept_from_van(van, bike)
+		station.accept_from_van(van)
 		expect(bike).not_to be_broken
 		expect(station.bike_count).to eq(1)		
 	end
