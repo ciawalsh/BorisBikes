@@ -6,6 +6,10 @@ module BikeContainer
 		@bikes ||= []
 	end
 
+	def broken_bikes
+		@broken_bikes ||= []
+	end
+
 	def capacity
 		@capacity ||= DEFAULT_CAPACITY
 	end
@@ -28,6 +32,14 @@ module BikeContainer
 			raise "There are no bikes in this holder"
 		else
 			bikes.delete(bike) 
+		end
+	end
+
+	def release_broken(bike)
+		if empty?
+			raise "There are no bikes in this holder"
+		else
+			broken_bikes.delete(bike) 
 		end
 	end
 

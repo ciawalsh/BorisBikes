@@ -13,7 +13,6 @@ describe Garage do
 		bike.break!
 		bike.fix!
 		expect(bike).not_to be_broken
-		expect(garage.bike_count).to eq(0)
 		garage.dock(bike)
 		expect(garage.bike_count).to eq(1)
 	end
