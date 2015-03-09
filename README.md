@@ -71,11 +71,11 @@ Fix                     | Bike
 Receive                 | Bike, Van
 Eject                   | Bike, Van
 
-##### Technologies used:
+### Technologies used:
 
 - Ruby
 - Rspec
 
-##### Paired With:
+### Paired With:
 
 - [Josh Bebbington](https://github.com/bebbs)
